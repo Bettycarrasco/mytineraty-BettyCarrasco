@@ -5,100 +5,114 @@
     padding: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     background-image: url('https://images.pexels.com/photos/16968296/pexels-photo-16968296/free-photo-of-vacaciones-puerto-barco-viaje.jpeg?auto=compress&cs=tinysrgb&w=2000');
     background-size: cover;
     background-repeat: no-repeat;
     height: 100%;
 }
 
-@media (min-width:320px){
-.home {
-    margin-top: 100px;
-    display: flex;
-    margin-left: 50px;
-    margin-right: 50px;
-    justify-content: center;
-    gap: 50px;
-    text-align: center;
-    flex-wrap: wrap;
-    align-content: center;
-    max-width: 100%;
+@media (min-width:320px) {
+    .home {
+        margin-top: 100px;
+        display: flex;
+        margin-left: 50px;
+        margin-right: 50px;
+        justify-content: center;
+        gap: 50px;
+        text-align: center;
+        flex-wrap: wrap;
+        align-content: center;
+        max-width: 100%;
+    }
+
+    .carousel {
+        height: 100%;
+        max-width: 200px;
+    }
+
+    .contruction {
+        width: 30%;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        margin-top: 100px;
+    }
+
+    .footer {
+        flex-shrink: 0;
+        bottom: 0px;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    
+    .image {
+        height: 150px;
+        width: 200px;
+        object-fit: fill;
+        border-radius: 10px;
+        border: 2px solid rgb(173, 21, 110);
+        box-shadow: 0px 0px 20px rgb(173, 21, 110);
+    }
+
+    .car {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        margin-bottom: 100px;
+    }
+
+    .sud_title {
+        text-align: start;
+        font-size: 30px;
+    }
+
+    .sud_title2 {
+        text-align: start;
+        font-size: 25px;
+        font-weight: bold;
+        color: rgb(138, 30, 84);
+    }
+
+    .card_paragraph {
+        max-width: 300px;
+        text-align: start;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .firs_Name {
+        position: relative;
+        top: -40px;
+    }
+
+    .card-image {
+        width: 200px;
+        /* Establece el ancho deseado para las imágenes */
+        height: 200px;
+        /* Establece la altura deseada para las imágenes */
+        object-fit: cover;
+        /* Asegura que las imágenes mantengan su relación de aspecto y llenen el espacio */
+    }
+
+    .view {
+        width: 200px;
+        border: none;
+        background-color: blue;
+        color: white;
+        border-radius: 8px;
+        height: 40px;
+        font-weight: 700;
+        margin-top: 25px;
+    }
 }
-.carousel {
-     height: 100%;
-     max-width: 200px;
-}
-.contruction {
-    width: 30%;
-}
-.container {
-    display: flex;
-    justify-content: center;
-    margin-top: 100px;
-}
-.footer {
-    flex-shrink: 0;
-    bottom: 0px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-.image {
-    height: 150px;
-    width: 200px;
-    object-fit: fill;
-    border-radius: 10px;
-    border: 2px solid rgb(173, 21, 110);
-    box-shadow: 0px 0px 20px rgb(173, 21,110);
-}
-.car {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    margin-bottom: 100px;
-}
-.sud_title {
-    text-align: start;
-    font-size: 30px;
-}
-.sud_title2 {
-    text-align: start;
-    font-size: 25px;
-    font-weight: bold;
-    color: rgb(138, 30, 84);
-}
-.card_paragraph {
-    max-width: 300px;
-    text-align: start;
-    font-size: 15px;
-    font-weight: bold;
-}
-.firs_Name {
-    position: relative;
-    top: -40px;
-}
-.card-image {
-    width: 200px;
-    /* Establece el ancho deseado para las imágenes */
-    height: 200px;
-    /* Establece la altura deseada para las imágenes */
-    object-fit: cover;
-    /* Asegura que las imágenes mantengan su relación de aspecto y llenen el espacio */
-}
-.view {
-    width: 200px;
-    border: none;
-    background-color: blue;
-    color: white;
-    border-radius: 8px;
-    height: 40px;
-    font-weight: 700;
-    margin-top: 25px;
-}
-}
+
 @media (max-width:452px) {
     .sud_title {
         font-size: 20px;
@@ -114,19 +128,23 @@ body{
         font-weight: 500;
     }
 }
-@media (min-width:768px){
-    .image{
-width: 130px;
+
+@media (min-width:768px) {
+    .image {
+        width: 130px;
     }
+
     .carousel {
         height: 90%;
         max-width: 600px;
     }
 }
-@media (min-width:1024px){
-    .image{
-width: 150px;
+
+@media (min-width:1024px) {
+    .image {
+        width: 150px;
     }
+
     .carousel {
         height: 90%;
         max-width: 800px;

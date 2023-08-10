@@ -6,7 +6,7 @@ const Nav = () => {
     <div>
       <nav className="navbar navbar-expand-lg bg-danger bg-gradient">
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/">
+          <Link className="navbar-brand text-white" to="/">
             MYTINERARY
           </Link>
           <button
@@ -24,14 +24,14 @@ const Nav = () => {
             className="collapse navbar-collapse d-flex justify-content-end"
             id="navbarNav"
           >
-            <ul className="navbar-nav">
+            <ul className="navbar-nav ">
               <li className="nav-item">
-                <Link className="nav-link" to="/">
+                <Link className="nav-link text-white" to="/">
                   Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/city">
+                <Link className="nav-link text-white" to="/city">
                   CITY
                 </Link>
               </li>

@@ -3,17 +3,15 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="container">
-        <div className="row">
-          <div className="col-md-4">
-            <h4>social networks</h4>
+    <footer className="footer bg-danger bg-gradient text-white">
+          <div className="col-md-2 ms-5">
+            <h5> Networks</h5>
             <i className="fa-brands fa-instagram"></i>
             <i className="fa-brands fa-facebook"></i>
             <i className="fa-brands fa-square-whatsapp"></i>
           </div>
-          <div className="col-md-4">
-            <h4>Navigation menu</h4>
+          <div className="col-md-2 menu_footer">
+            <h5>Navigation</h5>
             <Link to="/">
               <i className="fa-solid fa-house-chimney-window"></i>
             </Link>
@@ -21,14 +19,12 @@ const Footer = () => {
               <i className="fa-solid fa-tree-city"></i>
             </Link>
           </div>
-          <div className="col-md-4">
-            <h4>Additional Information</h4>
+          <div className="col-md-2">
+            <h5>Information</h5>
             <i>
               <i className="fa-solid fa-circle-info"></i>
             </i>
           </div>
-        </div>
-      </div>
     </footer>
   );
 };

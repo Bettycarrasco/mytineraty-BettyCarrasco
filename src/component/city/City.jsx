@@ -1,14 +1,84 @@
-import React from "react";
-import img from "../../json/data.json";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
-const imag = img.dato[0].url;
+const API = 'http://localhost:8000/cities';
 
-const City = () => {
+function City() {
+  const [dataCity, setDataCity] = useState([]);
+  const [searchInput, setSearchInput] = useState('');
+  const [filterData, setFilterData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(API);
+        const data = await response.json();
+        setDataCity(data);
+      } catch (error) {
+        console.error('Hubo un error:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const handleSearch = () => {
+    const searchTerm = searchInput.trim().toLowerCase();
+  
+    if (searchTerm === '') {
+      setFilterData([]);
+      return;
+    }
+  
+    const filterCities = dataCity.filter(item => {
+      const cityLower = item.city.toLowerCase();
+      return cityLower.indexOf(searchTerm)===0;
+    });
+  
+    setFilterData(filterCities);
+  };
+  
+
+  const handleInputChange = e => {
+    setSearchInput(e.target.value);
+    handleSearch();
+
+  if (e.target.value === '') {
+    setFilterData([]); // Restaura todas las tarjetas si se borra el campo
+  }
+};
+
+  const displayData = filterData.length > 0 ? filterData : dataCity;
+
   return (
-    <div className="container">
-      <img className="contruction" src={imag} alt="" />
+    <div>
+      <section className='d-flex justify-content-center'>
+        <div className="search d-flex justify-content-center">
+          <input
+            className="form-control me-2"
+            type="search"
+            placeholder="Search city or country..."
+            value={searchInput}
+            onChange={handleInputChange}
+          />
+        </div>
+      </section>
+      <section className='d-flex gap-5 flex-wrap p-5 justify-content-center'>
+        {
+        displayData.map(item => (
+          <div key={item._id} className="card p-4 bg-danger-subtle" style={{ width: '25rem' }}>
+            <Link to={`/tineraty/${item._id}`}>
+              <img src={item.url} className="card-img-top rounded border border-danger border-3" alt={`${item.city}, ${item.country}`} />
+            </Link>
+            <div className="card-body d-block text-center">
+              <h5 className="card-title">{item.city}.</h5> <h3>{item.country}.</h3>
+              <p className="card-text text-start">{item.description}</p>
+            </div>
+          </div>
+        ))}
+      </section>
     </div>
   );
-};
+}
 
 export default City;

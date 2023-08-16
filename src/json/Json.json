@@ -2,7 +2,7 @@
     "cities": [
         {
             "id": 1,
-            "firstName": "Buenos Aires: Argentina",
+            "firstName": "Buenos Aires: Argentina's",
             "url": "https://images.pexels.com/photos/13233025/pexels-photo-13233025.png?auto=compress&cs=tinysrgb&w=200",
             "city": "Buenos Aires"
         },
@@ -13,7 +13,7 @@
         },
         {
             "id": 3,
-            "firstName": "Río de Janeiro/Brasil",            
+            "firstName": "Río de Janeiro/Brazil",            
             "url": "https://images.pexels.com/photos/351283/pexels-photo-351283.jpeg?auto=compress&cs=tinysrgb&w=600"
         },
         {
@@ -23,43 +23,43 @@
         },
         {
             "id": 5,
-            "firstName": "Madrid/España",
+            "firstName": "Madrid/Spain",
             "url": "https://images.pexels.com/photos/3757144/pexels-photo-3757144.jpeg?auto=compress&cs=tinysrgb&w=8000"
         },
         {
             "id": 6,
-            "firstName": "Paris/Francia",
+            "firstName": "Paris/France",
             "url": "https://images.pexels.com/photos/1125212/pexels-photo-1125212.jpeg?auto=compress&cs=tinysrgb&w=600"
         },
         {
             "id": 7,
-            "firstName": "Roma/Italia",
+            "firstName": "Roma/Italy",
             "url": "https://images.pexels.com/photos/3021382/pexels-photo-3021382.jpeg?auto=compress&cs=tinysrgb&w=6001"
         },
         {
             "id": 8,
-            "firstName": "Atenas/Grecia",
+            "firstName": "Athens/Greece",
             "url": "https://images.pexels.com/photos/164336/pexels-photo-164336.jpeg?auto=compress&cs=tinysrgb&w=600"
         },
         {
             "id": 9,
-            "firstName": "Bali/Indonesia",
+            "firstName": "Bali/Indonesian",
             "url": "https://images.pexels.com/photos/2166553/pexels-photo-2166553.jpeg?auto=compress&cs=tinysrgb&w=8000"
         },
         {
             "id": 10,
-            "firstName": "La Muralla China/China",
+            "firstName": "The Great wall/China",
             "url": "https://images.pexels.com/photos/2412603/pexels-photo-2412603.jpeg?auto=compress&cs=tinysrgb&w=600",
             "descripcion": "dshfjsdjfhsjdfvsgv"
         },
         {
             "id": 11,
-            "firstName": "Tokio/Japón",
+            "firstName": "Tokyo/Japan's",
             "url": "https://images.pexels.com/photos/3402955/pexels-photo-3402955.jpeg?auto=compress&cs=tinysrgb&w=600"
         },
         {
             "id": 12,
-            "firstName": "Dubai/Emiratos Árabes Unidos",
+            "firstName": "Dubai/United Arab Emirates",
             "url": "https://images.pexels.com/photos/2086765/pexels-photo-2086765.jpeg?auto=compress&cs=tinysrgb&w=600"
         }
     ]

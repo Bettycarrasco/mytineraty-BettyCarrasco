@@ -52,7 +52,7 @@ function City() {
 
   return (
     <div>
-      <section className='d-flex justify-content-center'>
+      <section className='d-flex justify-content-center mt-5'>
         <div className="search d-flex justify-content-center">
           <input
             className="form-control me-2"
@@ -66,7 +66,7 @@ function City() {
       <section className='d-flex gap-5 flex-wrap p-5 justify-content-center'>
         {
         displayData.map(item => (
-          <div key={item._id} className="card p-4 bg-danger-subtle" style={{ width: '25rem' }}>
+          <div key={item._id} className="card p-4 bg-danger-subtle custom-card" style={{ width: '25rem'}}>
             <Link to={`/tineraty/${item._id}`}>
               <img src={item.url} className="card-img-top rounded border border-danger border-3" alt={`${item.city}, ${item.country}`} />
             </Link>

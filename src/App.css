@@ -13,6 +13,15 @@ body {
     height: 100%;
 }
 
+.custom-card{
+    min-height: 42rem;
+}
+
+.custom-card img{
+    object-fit: cover;
+    height: 15rem;
+}
+
 @media (min-width:320px) {
     .home {
         margin-top: 100px;
@@ -67,6 +76,7 @@ body {
         align-content: center;
         margin-bottom: 100px;
     }
+
 
     .sud_title {
         text-align: start;

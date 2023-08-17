@@ -21,7 +21,7 @@ const Nav = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div
-            className="collapse navbar-collapse d-flex justify-content-end"
+            className="collapse navbar-collapse d-flex justify-content-end align-content-center text-center mt-2"
             id="navbarNav"
           >
             <ul className="navbar-nav ">
@@ -35,10 +35,12 @@ const Nav = () => {
                   CITY
                 </Link>
               </li>
-              <button style={{ backgroundColor: 'rgb(138, 30, 84)'}} className=" border border-0 rounded text-white p-1">
-              <i className='bx bx-user' style={{color:'#c420d2'}}></i>
+              <div className="d-flex justify-content-center gap-3 button-login">
+              <button  className=" border border-0 rounded  p-1 pe-2">
+              <i className='fa-solid fa-user p-2'></i>
                 Login
               </button>
+              </div>
             </ul>
           </div>
         </div>

@@ -44,6 +44,16 @@ body {
     .contruction {
         width: 30%;
     }
+    .button-login button{
+        background-color: rgb(138, 30, 84);
+        color: white;
+    }
+    .button-login button:hover{
+        background-color: white;
+        color: rgb(138, 30, 84);
+        transition: 2s;
+        transform: scale(0.9);
+    }
 
     .container {
         display: flex;
@@ -117,6 +127,12 @@ body {
         height: 40px;
         font-weight: 700;
         margin-top: 25px;
+    }
+    .view:hover{
+        background-color: white;
+        color: rgb(138, 30, 84);
+        transition: 2s;
+        transform: scale(0.9);
     }
 }
 

@@ -35,7 +35,7 @@ const Nav = () => {
                   CITY
                 </Link>
               </li>
-              <button className="bg-secondary border border-0 rounded text-white p-1">
+              <button style={{ backgroundColor: 'rgb(138, 30, 84)'}} className=" border border-0 rounded text-white p-1">
               <i className='bx bx-user' style={{color:'#c420d2'}}></i>
                 Login
               </button>

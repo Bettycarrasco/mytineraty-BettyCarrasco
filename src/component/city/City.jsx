@@ -36,6 +36,18 @@ function City() {
     });
   
     setFilterData(filterCities);
+    if (filterCities.length === 0 && searchTerm !== ''){
+      Swal.fire({
+        icon: 'error',
+        title: 'Sorry Not Found',
+        text: 'Sorry no result found',
+        background: 'yellow',
+        color:'white',
+        timer: 3000,
+        showConfirmButton: false,
+        
+      })
+    }
   };
   
 

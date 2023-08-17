@@ -19,10 +19,10 @@ const Footer = () => {
               <i className="fa-solid fa-tree-city px-2"></i>
             </Link>
           </div>
-          <div className="col-md-2">
+          <div className="col-md-2 d-block align-content-center text-center">
             <h5>Information</h5>
-            <i>
-              <i className="fa-solid fa-circle-info"></i>
+            <i className="d-flex justify-content-center gap-2">
+              <i className="fa-solid fa-circle-info"></i> <h6>Betty Carrasco</h6>
             </i>
           </div>
     </footer>

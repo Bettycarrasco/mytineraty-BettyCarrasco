@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/city" element={<City />} />
-        <Route pach="/tineraty/:_id" element={<Tineraty />} />
+        <Route path="/tineraty/:_id" element={<Tineraty />} />
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Card = () => {
   return (
@@ -13,8 +14,9 @@ const Card = () => {
         easy-to-use interface and a host of itinerary option, planning your next
         trip has never been easier.
       </p>
-
+      <Link to={"/city"} > 
       <button className="view">View More</button>
+      </Link>
     </div>
   );
 };

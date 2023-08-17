@@ -13,11 +13,11 @@ body {
     height: 100%;
 }
 
-.custom-card{
+.custom-card {
     min-height: 42rem;
 }
 
-.custom-card img{
+.custom-card img {
     object-fit: cover;
     height: 15rem;
 }
@@ -59,7 +59,7 @@ body {
         justify-content: space-between;
         width: 100%;
     }
-    
+
     .image {
         height: 150px;
         width: 200px;
@@ -76,7 +76,6 @@ body {
         align-content: center;
         margin-bottom: 100px;
     }
-
 
     .sud_title {
         text-align: start;
@@ -104,9 +103,7 @@ body {
 
     .card-image {
         width: 200px;
-        /* Establece el ancho deseado para las imágenes */
         height: 200px;
-        /* Establece la altura deseada para las imágenes */
         object-fit: cover;
         /* Asegura que las imágenes mantengan su relación de aspecto y llenen el espacio */
     }
@@ -114,7 +111,7 @@ body {
     .view {
         width: 200px;
         border: none;
-        background-color: blue;
+        background-color: rgb(138, 30, 84);
         color: white;
         border-radius: 8px;
         height: 40px;

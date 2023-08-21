@@ -87,6 +87,7 @@ body {
         justify-content: center;
         align-content: center;
         margin-bottom: 100px;
+        color: rgb(138, 30, 84);
     }
 
     .sud_title {
@@ -100,6 +101,27 @@ body {
         font-weight: bold;
         color: rgb(138, 30, 84);
     }
+
+    .sud_title3 {
+        color: rgb(138, 30, 84);
+        font-weight: 800;
+        font-size: 25px;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        height: 4rem;
+        top: 40%;
+    }
+
+    .conter-car {
+        width: 100%;
+        height: 800px;
+        border: 3px solid rgb(138, 30, 84);
+        border-radius: 10px;
+
+    }
+
 
     .card_paragraph {
         max-width: 300px;
@@ -164,6 +186,9 @@ body {
         height: 90%;
         max-width: 600px;
     }
+    .conter-car{
+        height: 300px;
+    }
 }
 
 @media (min-width:1024px) {
@@ -175,9 +200,13 @@ body {
     .carousel {
         height: 90%;
         max-width: 800px;
-
     }
-    .carousel-indicators{
+
+    .conter-car{
+        height: 500px;
+    }
+
+    .carousel-indicators {
         position: absolute;
         z-index: 10;
     }

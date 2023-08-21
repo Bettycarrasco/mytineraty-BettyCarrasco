@@ -7,11 +7,13 @@ const Home = () => {
     <div className="home">
       <section className="car p-xxl-5">
         <Card />
-        <div className="d-flex flex-column justify-content-center align-content-center bg-transparent border border-danger-subtle p-3">
-          <h5 className="d-flex justify-content-center p-lg-5 text-danger">
+        <div className=" conter-car flex-column align-content-center bg-transparent p-3">
+          <h5 className="sud_title3 d-flex justify-content-center p-lg-5">
             Popular Mytineraries
           </h5>
+          <div className="d-flex justify-content-center">
           <Carousel  />
+          </div>
         </div>
       </section>
     </div>

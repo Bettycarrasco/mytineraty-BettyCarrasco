@@ -12,9 +12,8 @@ function getArray(arr, size) {
 }
 
 const Carousel = () => {
-
   const carouselItems = getArray(image, 4);
-  
+
   return (
     <div className="carousel">
       <div
@@ -48,37 +47,41 @@ const Carousel = () => {
                       className="image d-block"
                       alt={cityItem.firstName}
                     />
-                    <h6 className="firs_Name text-white">{cityItem.firstName}</h6>
+                    <h6 className="firs_Name text-white">
+                      {cityItem.firstName}
+                    </h6>
                   </div>
                 ))}
               </div>
             </div>
           ))}
         </div>
-        <button
-          className="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide="prev"
-        >
-          <span
-            className="carousel-control-prev-icon"
-            aria-hidden="true"
-          ></span>
-          <span className="visually-hidden">Previous</span>
-        </button>
-        <button
-          className="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide="next"
-        >
-          <span
-            className="carousel-control-next-icon"
-            aria-hidden="true"
-          ></span>
-          <span className="visually-hidden">Next</span>
-        </button>
+        <div className="buttonCarousel">
+          <button
+            className="carousel-control-prev" style={{ left: '0', transform: 'translateY(-50%)' }}
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev"
+          >
+            <span
+              className="carousel-control-prev-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="visually-hidden">Previous</span>
+          </button>
+          <button
+            className="carousel-control-next" style={{ right: '0', transform: 'translateY(-50%)' }}
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next"
+          >
+            <span
+              className="carousel-control-next-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="visually-hidden">Next</span>
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 
-const API = "http://localhost:8000/cities";
+const API = "http://localhost:7000/cities";
 
 function Tineraty() {
   const [dataCity, setDataCity] = useState({});
@@ -43,7 +43,7 @@ function Tineraty() {
             <div>
               <i className=" mt-2 fs-2 d-flex justify-content-center align-content-center fw-bold fa-solid fa-chevron-left"></i>
             </div>
-            <div>prev</div>
+            <div>Go back</div>
           </button>
         </Link>
       </div>

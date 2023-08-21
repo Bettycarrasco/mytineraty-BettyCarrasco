@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="footer bg-danger bg-gradient text-white">
+    <footer className="footer bg-danger bg-gradient text-white sm:mt-0">
           <div className="col-md-2 ms-5">
             <h5 className="px-auto"> Networks</h5>
             <i className="fa-brands fa-instagram"></i>

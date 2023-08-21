@@ -22,7 +22,7 @@ const Carousel = () => {
         className="carousel slide"
         data-bs-ride="carousel"
       >
-        <div className="carousel-indicators mb-1">
+        <div className="carousel-indicators">
           {carouselItems.map((_, index) => (
             <button
               type="button"
@@ -33,7 +33,7 @@ const Carousel = () => {
             ></button>
           ))}
         </div>
-        <div className="carousel-inner d-flex">
+        <div className="carousel-inner">
           {carouselItems.map((group, index) => (
             <div
               className={`carousel-item ${index === 0 ? "active" : ""}`}

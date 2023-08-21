@@ -44,11 +44,13 @@ body {
     .contruction {
         width: 30%;
     }
-    .button-login button{
+
+    .button-login button {
         background-color: rgb(138, 30, 84);
         color: white;
     }
-    .button-login button:hover{
+
+    .button-login button:hover {
         background-color: white;
         color: rgb(138, 30, 84);
         transition: 2s;
@@ -73,7 +75,7 @@ body {
     .image {
         height: 150px;
         width: 200px;
-        object-fit: fill;
+        object-fit: cover;
         border-radius: 10px;
         border: 2px solid rgb(173, 21, 110);
         box-shadow: 0px 0px 20px rgb(173, 21, 110);
@@ -115,7 +117,6 @@ body {
         width: 200px;
         height: 200px;
         object-fit: cover;
-        /* Asegura que las imágenes mantengan su relación de aspecto y llenen el espacio */
     }
 
     .view {
@@ -128,7 +129,8 @@ body {
         font-weight: 700;
         margin-top: 25px;
     }
-    .view:hover{
+
+    .view:hover {
         background-color: white;
         color: rgb(138, 30, 84);
         transition: 2s;
@@ -155,6 +157,7 @@ body {
 @media (min-width:768px) {
     .image {
         width: 130px;
+        height: 200px;
     }
 
     .carousel {
@@ -165,11 +168,17 @@ body {
 
 @media (min-width:1024px) {
     .image {
-        width: 150px;
+        width: 180px;
+        height: 250px;
     }
 
     .carousel {
         height: 90%;
         max-width: 800px;
+
+    }
+    .carousel-indicators{
+        position: absolute;
+        z-index: 10;
     }
 }

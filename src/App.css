@@ -14,12 +14,18 @@ body {
 }
 
 .custom-card {
-    min-height: 42rem;
+    min-height: 20rem;
 }
 
 .custom-card img {
     object-fit: cover;
     height: 15rem;
+}
+
+.card-text{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 @media (min-width:320px) {

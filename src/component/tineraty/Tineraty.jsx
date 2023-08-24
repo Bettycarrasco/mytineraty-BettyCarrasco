@@ -33,7 +33,7 @@ function Tineraty() {
           <div className="card-body justify-content-center d-block text-center">
             <h5 className="card-title">{dataCity.city}.</h5>
             <h3>{dataCity.country}.</h3>
-            <p className="card-text text-start">{dataCity.description}</p>
+            <p className="text-start">{dataCity.description}</p>
           </div>
         </div>
       </div>

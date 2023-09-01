@@ -1,26 +1,34 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { readAllCities } from "../../redux/Action/CitiesAction.js";
 
 const API = "http://localhost:7000/cities";
 
 function City() {
-  const [dataCity, setDataCity] = useState([]);
+  const dataCity = useSelector(store => store.readAllCitiesReducer.cities)
+  const dispatch = useDispatch()
+  //const [dataCity, setDataCity] = useState([]);
   const [searchInput, setSearchInput] = useState('');
   const [filterData, setFilterData] = useState([]);
+  
+  useEffect(()=>{
+    dispatch(readAllCities());
+  }, [])
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(API);
-        const data = await response.json();
-        setDataCity(data);
-      } catch (error) {
-        console.error("Hubo un error:", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await fetch(API);
+  //       const data = await response.json();
+  //       setDataCity(data);
+  //     } catch (error) {
+  //       console.error("Hubo un error:", error);
+  //     }
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
   const handleSearch = () => {
     const searchTerm = searchInput.trim().toLowerCase();
@@ -69,7 +77,7 @@ function City() {
             className="form-control me-2"
             type="search"
             placeholder="Search city or country..."
-            value={searchInput}
+            //value={searchInput}
             onChange={handleInputChange}
           />
         </div>

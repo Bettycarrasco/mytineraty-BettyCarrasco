@@ -5,9 +5,12 @@ import Home from "./component/home/Home.jsx";
 import Nav from "./component/navbar/Nav.jsx";
 import Footer from "./component/footer/Footer.jsx";
 import Tineraty from "./component/tineraty/Tineraty.jsx";
+import { Provider } from "react-redux";
+import store from "./redux/Store.js";
 
 function App() {
   return (
+    <Provider store={store}>
     <BrowserRouter>
       <Nav />
       <Routes>
@@ -17,6 +20,7 @@ function App() {
       </Routes>
       <Footer />
     </BrowserRouter>
+    </Provider>
   );
 }
 

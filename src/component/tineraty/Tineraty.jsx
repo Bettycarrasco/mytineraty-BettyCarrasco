@@ -62,10 +62,10 @@ function Tineraty() {
           "UNDER CONSTRUCTION"
         </h5> */}
         <div className="text-center" style={{color:'rgb(138, 30, 84)'}}>
-        <h1 style={{color:'rgb(138, 30, 84)'}} >ITINERARIES</h1>
+        <h1 style={{color:'rgb(138, 30, 84)'}} className="mt-4 p-1 bg-danger-subtle" >ITINERARIES</h1>
         {
           itineraries == "" ?
-            <h2>NOT FOUND FOR THIS CITY YET </h2>
+            <h2 className="p-1 bg-danger-subtle">NOT FOUND FOR THIS CITY YET </h2>
             :
             itineraries.map((e, i)=>{
             return   <Itineraries key={i} data={e} />

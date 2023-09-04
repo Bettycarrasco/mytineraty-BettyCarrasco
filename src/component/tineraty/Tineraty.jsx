@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import Itineraries from "../itineraries/Itineraries";
+import axios from "axios";
 
 const API = "http://localhost:7000/cities";
 
 function Tineraty() {
   const [dataCity, setDataCity] = useState({});
   const { _id } = useParams();
+  const [itineraries, setItineraries] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,13 +24,20 @@ function Tineraty() {
     fetchData();
   }, [_id]);
 
+  useEffect(()=> {
+    axios("http://localhost:7000/itinerary/city/"+_id)
+    .then(res=>setItineraries(res.data))
+    .catch(err=>console.log(err))
+  },[])
+
   return (
     <div className="p-5">
       <div className="d-flex justify-content-center">
         <div className="card p-4 bg-danger-subtle" style={{ width: "60rem" }}>
           <img
             src={dataCity.url}
-            className="card-img-top rounded border border-danger border-4" style={{height:"40rem"}}
+            className="card-img-top rounded border border-danger border-4"
+            style={{ height: "40rem" }}
             alt={`${dataCity.city}, ${dataCity.country}`}
           />
           <div className="card-body justify-content-center d-block text-center">
@@ -48,13 +58,23 @@ function Tineraty() {
         </Link>
       </div>
       <section className="d-flex justify-content-center mt-xxl-5*2 mb-xxl-5">
-        <h5 className="fs-1 fw-bold mt-5 text-white bg-danger rounded p-3">
+        {/* <h5 className="fs-1 fw-bold mt-5 text-white bg-danger rounded p-3">
           "UNDER CONSTRUCTION"
-        </h5>
+        </h5> */}
+        <div className="col text-center">
+        <h1>ITINERARIES</h1>
+        {
+          itineraries == "" ?
+            <h2>NOT FOUND FOR THIS CITY YET </h2>
+            :
+            itineraries.map((e, i)=>{
+            return   <Itineraries key={i} data={e} />
+            })
+        }
+        </div>
       </section>
-    </div>
+    </div> 
   );
 }
 
 export default Tineraty;
-

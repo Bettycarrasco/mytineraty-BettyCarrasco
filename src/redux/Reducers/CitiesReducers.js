@@ -1,22 +1,30 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { readAllCities } from "../Action/CitiesAction.js";
+import { readAllCities,filterCities } from "../Action/CitiesAction.js";
 
 
 const initialState = {
     cities : [],
+    filteredCities: [],
+    city: {},
+    itineraries: []
 };
 
-const readAllCitiesReducer = createReducer(initialState, (builder) => 
+export const readAllCitiesReducer = createReducer(initialState, (builder) =>{ 
     builder
-        .addCase(readAllCities.fulfilled, (store,action)=>{
-            const newStore = {...store, cities: action.payload}
-            
-            return newStore
+        .addCase(readAllCities.fulfilled, (store, action)=>{
+            return{
+                ...store, 
+                cities: action.payload, 
+                filteredCities: action.payload
+            }
         })
-        .addCase(readAllCities.rejected, (store,action)=>{
-            const newStore = {...store, cities: action.payload}
-            return newStore
+        .addCase(filterCities, (store, action)=>{
+            const search = action.payload.toLowerCase().trim()
+            const newFilter = store.cities.filter(city=>city.city.toLowerCase().trim().startsWith(search))
+            return{
+                ...store,  
+                filteredCities: newFilter
+            }
         })
-);
+    });
 
-export default readAllCitiesReducer

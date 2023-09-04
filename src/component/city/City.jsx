@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { readAllCities } from "../../redux/Action/CitiesAction.js";
+import { readAllCities, filterCities } from "../../redux/Action/CitiesAction.js";
 
 const API = "http://localhost:7000/cities";
 
@@ -15,6 +15,12 @@ function City() {
   useEffect(()=>{
     dispatch(readAllCities());
   }, [])
+
+  const filter = (e)=>{
+    dispatch(filterCities(e));
+  }
+
+  
 
   // useEffect(() => {
   //   const fetchData = async () => {
@@ -79,11 +85,13 @@ function City() {
             placeholder="Search city or country..."
             //value={searchInput}
             onChange={handleInputChange}
+            //onChange={(e)=>filter(e.target.value)}
           />
         </div>
       </section>
       <section className="d-flex gap-5 flex-wrap p-5 justify-content-center">
         {displayData.map((item) => (
+          
           <div
             key={item._id}
             className="card p-4 bg-danger-subtle custom-card"

@@ -1,26 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { readAllCities, filterCities } from "../../redux/Action/CitiesAction.js";
+import {
+  readAllCities,
+  filterCities,
+} from "../../redux/Action/CitiesAction.js";
 
 const API = "http://localhost:7000/cities";
 
 function City() {
-  const dataCity = useSelector(store => store.readAllCitiesReducer.cities)
-  const dispatch = useDispatch()
+  const dataCity = useSelector((store) => store.readAllCitiesReducer.cities);
+  const dispatch = useDispatch();
   //const [dataCity, setDataCity] = useState([]);
-  const [searchInput, setSearchInput] = useState('');
+  const [searchInput, setSearchInput] = useState("");
   const [filterData, setFilterData] = useState([]);
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     dispatch(readAllCities());
-  }, [])
+  }, []);
 
-  const filter = (e)=>{
+  const filter = (e) => {
     dispatch(filterCities(e));
-  }
-
-  
+  };
 
   // useEffect(() => {
   //   const fetchData = async () => {
@@ -39,18 +40,18 @@ function City() {
   const handleSearch = () => {
     const searchTerm = searchInput.trim().toLowerCase();
 
-    if (searchTerm === '') {
+    if (searchTerm === "") {
       setFilterData([]);
       return;
     }
 
-    const filterCities = dataCity.filter(item => {
+    const filterCities = dataCity.filter((item) => {
       const cityLower = item.city.toLowerCase();
       return cityLower.indexOf(searchTerm) === 0;
     });
 
     setFilterData(filterCities);
-    if (filterCities.length === 0 && searchTerm !== '') {
+    if (filterCities.length === 0 && searchTerm !== "") {
       Swal.fire({
         icon: "error",
         title: "Sorry Not Found",
@@ -59,8 +60,8 @@ function City() {
         color: "white",
         timer: 3000,
         showConfirmButton: false,
-      })
-      setSearchInput('')
+      });
+      setSearchInput("");
     }
   };
 
@@ -68,7 +69,7 @@ function City() {
     setSearchInput(e.target.value);
     handleSearch();
 
-    if (e.target.value === '') {
+    if (e.target.value === "") {
       setFilterData([]); // Restaura todas las tarjetas si se borra el campo
     }
   };
@@ -83,7 +84,7 @@ function City() {
             className="form-control me-2"
             type="search"
             placeholder="Search city or country..."
-            //value={searchInput}
+            value={searchInput}
             onChange={handleInputChange}
             //onChange={(e)=>filter(e.target.value)}
           />
@@ -91,7 +92,6 @@ function City() {
       </section>
       <section className="d-flex gap-5 flex-wrap p-5 justify-content-center">
         {displayData.map((item) => (
-          
           <div
             key={item._id}
             className="card p-4 bg-danger-subtle custom-card"

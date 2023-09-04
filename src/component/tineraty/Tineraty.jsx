@@ -61,8 +61,8 @@ function Tineraty() {
         {/* <h5 className="fs-1 fw-bold mt-5 text-white bg-danger rounded p-3">
           "UNDER CONSTRUCTION"
         </h5> */}
-        <div className="col text-center">
-        <h1>ITINERARIES</h1>
+        <div className="text-center" style={{color:'rgb(138, 30, 84)'}}>
+        <h1 style={{color:'rgb(138, 30, 84)'}} >ITINERARIES</h1>
         {
           itineraries == "" ?
             <h2>NOT FOUND FOR THIS CITY YET </h2>

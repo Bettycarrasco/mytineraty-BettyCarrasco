@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Nav = () => {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-danger bg-gradient">
+      <nav className="navbar navbar-expand-lg bg-danger">
         <div className="container-fluid">
           <Link className="navbar-brand text-white" to="/">
             MYTINERARY
@@ -21,7 +21,7 @@ const Nav = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div
-            className="collapse navbar-collapse d-flex justify-content-end align-content-center text-center mt-2"
+            className="collapse navbar-collapse  justify-content-end  mt-2"
             id="navbarNav"
           >
             <ul className="navbar-nav ">

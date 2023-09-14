@@ -7,6 +7,8 @@ import Footer from "./component/footer/Footer.jsx";
 import Tineraty from "./component/tineraty/Tineraty.jsx";
 import { Provider } from "react-redux";
 import store from "./redux/Store.js";
+import Login from "./component/login/Login.jsx";
+import Register from "./component/register/Register.jsx";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/city" element={<City />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/tineraty/:_id" element={<Tineraty />} />
       </Routes>
       <Footer />

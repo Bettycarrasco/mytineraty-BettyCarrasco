@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import {readAllCitiesReducer} from "./Reducers/CitiesReducers.js";
+import userReducer from "./Reducers/UserReducers.js";
 
 const store = configureStore({
     reducer: {
-        readAllCitiesReducer 
+        readAllCitiesReducer,
+        userReducer
     }
 })
 

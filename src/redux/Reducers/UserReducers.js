@@ -1,7 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
-
 import { signup, login, autenticate, logoutAction } from "../Action/UserAction.js";
-
 
 const initialState = {
     user : {},
@@ -23,14 +21,16 @@ const userReducer = createReducer(initialState,
     })
     .addCase(autenticate.fulfilled, (state, action) => {
 
-        const newState = { ...state}
+        const newState = { ...state, ...action.payload}
         return newState
     })
+    
     .addCase(logoutAction, (state, action) => {
 
         const newState = { ...state, ...action.payload}
         return newState
     })
+    
 )
 
 export default userReducer

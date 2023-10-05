@@ -3,6 +3,7 @@ import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import jwtDecode from "jwt-decode";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const [data, setData] = useState({
@@ -19,20 +20,30 @@ const Register = () => {
     setData({ ...data, [name]: type === "checkbox" ? checked : value });
   };
 
+  const googleRegister = async (data) => {
+    try {
+      await axios.post("http://localhost:7000/users", data);
+      console.log("dato de registro", response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const userData = {...data}
+    const userData = { ...data };
     if (data.terms) {
       const requestData = {
         name: data.firstName + " " + data.lastName,
         email: data.email,
         password: data.password,
-        Photo: data.Photo
+        Photo: data.Photo,
       };
-      
 
       try {
-        const response = await axios.post("http://localhost:7000/users", {...requestData});
+        const response = await axios.post("http://localhost:7000/users", {
+          ...requestData,
+        });
         console.log("Datos de registro:", response.data);
         Swal.fire({
           icon: "success",
@@ -45,7 +56,7 @@ const Register = () => {
         Swal.fire({
           icon: "error",
           title: "Fail Register!",
-          text: ` ${error.response.data.message}!`,
+          text: `The email: ${requestData.email.toUpperCase()} is already Registered!`,
         });
         // Aquí puedes manejar errores, mostrar mensajes de error al usuario.
         setRegistrationStatus("error");
@@ -53,21 +64,28 @@ const Register = () => {
     } else {
       setRegistrationStatus("terms-error");
       console.log("Debe aceptar los términos y condiciones.");
-      
     }
   };
 
   const renderAlert = () => {
     if (registrationStatus === "success") {
-      return <div className="alert alert-success">Usuario registrado con éxito.</div>;
+      return (
+        <div className="alert alert-success">Usuario registrado con éxito.</div>
+      );
     } else if (registrationStatus === "error") {
-      return <div className="alert alert-danger">Error al registrar el usuario.</div>;
+      return (
+        <div className="alert alert-danger">Error al registrar el usuario.</div>
+      );
     } else if (registrationStatus === "terms-error") {
-      return <div className="alert alert-warning">Debe aceptar los términos y condiciones para registrarse.</div>;
+      return (
+        <div className="alert alert-warning">
+          Debe aceptar los términos y condiciones para registrarse.
+        </div>
+      );
     }
     return null;
-    };
-  
+  };
+
   return (
     <form
       className="form d-flex justify-content-center align-items-center"
@@ -87,9 +105,17 @@ const Register = () => {
                 Photo: infoUser.picture,
                 terms: true,
               });
-              Swal.fire({
-                icon: "success",
-                title: "Register in!",
+              // Swal.fire({
+              //   icon: "success",
+              //   title: "Register in!",
+              // });
+              googleRegister({
+                firstName: infoUser.given_name,
+                lastName: infoUser.family_name || " ",
+                email: infoUser.email,
+                password: "aA_123",
+                Photo: infoUser.picture || " ",
+                terms: true,
               });
             }}
             onError={() => {
@@ -104,7 +130,7 @@ const Register = () => {
         <div className="">
           <label
             htmlFor="exampleInputFirstName"
-            className="form-label"
+            className="form-label fw-bold fs-5"
             style={{ color: "rgb(138, 30, 84)" }}
           >
             First Name
@@ -118,14 +144,12 @@ const Register = () => {
             id="exampleInputFirstName"
             aria-describedby="firstNamelHelp"
           />
-          <div id="firstNamelHelp" className="form-text">
-            First name
-          </div>
+         
         </div>
         <div className="">
           <label
             htmlFor="exampleInputLastName"
-            className="form-label"
+            className="form-label fw-bold fs-5"
             style={{ color: "rgb(138, 30, 84)" }}
           >
             Last Name
@@ -139,14 +163,11 @@ const Register = () => {
             id="exampleInputLastName"
             aria-describedby="lastNamelHelp"
           />
-          <div id="lastNamelHelp" className="form-text">
-            Last Name
-          </div>
         </div>
         <div className="">
           <label
             htmlFor="exampleInputEmail1"
-            className="form-label"
+            className="form-label fw-bold fs-5"
             style={{ color: "rgb(138, 30, 84)" }}
           >
             Email address
@@ -160,14 +181,11 @@ const Register = () => {
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
           />
-          <div id="emailHelp" className="form-text">
-            We'll never share your email with anyone else.
-          </div>
         </div>
         <div className="">
           <label
             htmlFor="exampleInputPassword1"
-            className="form-label"
+            className="form-label fw-bold fs-5"
             style={{ color: "rgb(138, 30, 84)" }}
           >
             Password
@@ -184,7 +202,7 @@ const Register = () => {
         <div className="">
           <label
             htmlFor="exampleInputPhoto"
-            className="form-label"
+            className="form-label fw-bold fs-5"
             style={{ color: "rgb(138, 30, 84)" }}
           >
             Photo
@@ -198,9 +216,6 @@ const Register = () => {
             id="exampleInputPhoto"
             aria-describedby="photoHelp"
           />
-          <div id="photoHelp" className="form-text">
-            Photo
-          </div>
         </div>
       </div>
       <div className="mb-2 p-5 form-check">
@@ -213,7 +228,7 @@ const Register = () => {
           id="exampleCheck1"
         />
         <label
-          className="form-check-label"
+          className="form-check-label fw-bold fs-5"
           htmlFor="exampleCheck1"
           style={{ color: "rgb(138, 30, 84)" }}
         >
@@ -222,11 +237,28 @@ const Register = () => {
       </div>
       <button
         type="submit"
-        className="form1 mb-2 p-3 btn btn-primary"
-        style={{ backgroundColor: "rgb(138, 30, 84)", color: "white" }}
+        className="form1 mb-2 p-2 btn btn-primary d-flex justify-content-center"
+        style={{
+          backgroundColor: "rgb(138, 30, 84)",
+          width: "100px",
+          color: "white",
+        }}
       >
-        Sign up
+        Submit
       </button>
+      <Link to="/login" style={{ textDecoration: "none" }}>
+        <button
+          type="button"
+          className="form1 mb-2 p-2 btn btn-primary d-flex justify-content-center"
+          style={{
+            backgroundColor: "rgb(138, 30, 84)",
+            width: "100px",
+            color: "white",
+          }}
+        >
+          Sign in
+        </button>
+      </Link>
     </form>
   );
 };

@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { login } from "../../redux/Action/UserAction.js";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [data, setData] = useState({
@@ -15,7 +16,8 @@ const Login = () => {
   });
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const [isRegistered, setIsRegistered] = useState(false);
+  //const [isRegistered, setIsRegistered] = useState(false);
+
 
 
   const handleChangeData = (e) => {
@@ -61,9 +63,9 @@ const Login = () => {
         <GoogleOAuthProvider clientId="614410127871-8h2cdmlibjb1mhg14r9c871tfdpfqd2k.apps.googleusercontent.com">
           <GoogleLogin
             onSuccess={(CredentialResponse) => {
-              console.log("CredentialResponse");
+              //console.log("CredentialResponse");
               const infoUser = jwtDecode(CredentialResponse.credential);
-              console.log(infoUser);
+              //console.log(infoUser);
               setData({
                 email: infoUser.email,
                 password: "aA_123",
@@ -97,7 +99,7 @@ const Login = () => {
         <div className="">
           <label
             htmlFor="exampleInputEmail1"
-            className="form-label"
+            className="form-label fw-bold fs-5"
             style={{ color: "rgb(138, 30, 84)" }}
           >
             Email address
@@ -111,14 +113,11 @@ const Login = () => {
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
           />
-          <div id="emailHelp" className="form-text">
-            We'll never share your email with anyone else.
-          </div>
         </div>
         <div className="">
           <label
             htmlFor="exampleInputPassword1"
-            className="form-label"
+            className="form-label fw-bold fs-5"
             style={{ color: "rgb(138, 30, 84)" }}
           >
             Password
@@ -143,22 +142,29 @@ const Login = () => {
           id="exampleCheck1"
         />
         <label
-          className="form-check-label"
+          className="form-check-label fw-bold fs-5"
           htmlFor="exampleCheck1"
           style={{ color: "rgb(138, 30, 84)" }}
         >
           Check me out
         </label>
       </div>
+      <div>
       <button
         type="submit"
-        className="form1 mb-2 p-3 btn btn-primary"
-        style={{ backgroundColor: "rgb(138, 30, 84)", color: "white" }}
+        className="form1 mb-2 p-2 btn btn-primary d-flex justify-content-center"
+        style={{ backgroundColor: "rgb(138, 30, 84)", width: "100px", color: "white" }}
       >
         Submit
       </button>
+              <Link to="/register" style={{textDecoration:"none"}}>
+              <button type="button" className="form1 mb-2 p-2 btn btn-primary d-flex justify-content-center"
+        style={{ backgroundColor: "rgb(138, 30, 84)", width: "100px",  color: "white" }}>
+          sing up</button>
+              </Link>
+              </div>
     </form>
-  );
+              );
 };
 
 export default Login;
